@@ -11,7 +11,7 @@
                     <div class="card-body card-block">
                         <div class="form-group">
                             <label for="name" class=" form-control-label">Name</label>
-                            <input type="text" id="name" class="form-control">
+                            <input type="text" name="name" id="name" class="form-control">
                         </div>
                         {{--                        <div class="form-group">--}}
                         {{--                            <label for="phone" class=" form-control-label">Phone</label>--}}
@@ -19,7 +19,7 @@
                         {{--                        </div>--}}
                         <div class="form-group">
                             <label for="email" class=" form-control-label">Email</label>
-                            <input type="text" id="email" class="form-control">
+                            <input type="text" name="email" id="email" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="inputName">Content</label>

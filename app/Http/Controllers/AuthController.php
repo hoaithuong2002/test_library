@@ -21,11 +21,15 @@ class AuthController extends Controller
             'email'=>$email,
             'password'=>$password
         ];
-        if (!Auth::attempt($data)) {
-            return redirect()->route('admin.login')->with('login-error', 'Tài khoản hoặc mật khẩu không đúng!');
-        } else {
-            return redirect()->route('user.index');
+        if (Auth::attempt($data)) {
+            return redirect()->intended('/admin/index   ');
         }
+        return back()->withErrors([
+            'login-error' => 'Tài khoản hoặc mật khẩu không đúng!',
+
+        ]);
+//            return redirect()->route('user.index');
+
     }
     function logout(Request $request): \Illuminate\Http\RedirectResponse
     {

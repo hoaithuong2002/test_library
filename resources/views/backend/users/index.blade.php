@@ -1,4 +1,4 @@
-@extends('layout.master')
+@extends('layouts.master')
 @section('content')
     <div class="orders">
         <div class="row">
@@ -28,12 +28,12 @@
                                     <tr class="user-list">
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $user->name }}</td>
-                                        <td><img src="{{ asset('storage/' . $user->image) }}" width="150" alt=""></td>
+{{--                                        <td><img src="{{ asset('storage/' . $user->image) }}" width="150" alt=""></td>--}}
                                         <td>{{ $user->email }}</td>
                                         <td>
-                                            @foreach($user->roles as $role)
-                                                {{ $role->name. ',' }}
-                                            @endforeach
+{{--                                            @foreach($user->roles as $role)--}}
+{{--                                                {{ $role->name. ',' }}--}}
+{{--                                            @endforeach--}}
                                         </td>
                                         <td><a href="">{{  $user->group->name ?? '' }}</a></td>
                                         <td>
@@ -45,7 +45,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                            {{ $users->links() }}
+{{--                            {{ $users->links() }}--}}
                         </div> <!-- /.table-stats -->
                     </div>
                 </div> <!-- /.card -->
