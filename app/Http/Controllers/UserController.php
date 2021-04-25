@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Group;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -21,11 +20,9 @@ class UserController extends Controller
 
     public function create()
     {
-//       $roles=Role::all();
-//       $groups=Group::all();
-        return view('backend.users.create');
+       $roles=Role::all();
+        return view('backend.users.create',compact('roles'));
     }
-
     public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $user = new User();
@@ -43,7 +40,7 @@ class UserController extends Controller
         return view('backend.users.edit',compact('user'));
     }
 
-    public function edit($id, Request $request)
+    public function edit($id, Request $request): \Illuminate\Http\RedirectResponse
     {
         $user = User::find($id);
         $user->name = $request->name;
@@ -51,7 +48,7 @@ class UserController extends Controller
         $user->save();
         return redirect()->route('user.index');
     }
-    function delete($id)
+    function delete($id): \Illuminate\Http\RedirectResponse
     {
         $user = User::find($id);
         $user->delete();

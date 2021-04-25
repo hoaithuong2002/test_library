@@ -29,6 +29,7 @@ class UserService extends BaseService
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->address = $request->address;
+        $path = $this->updateLoadFile($request, 'image', 'avatar');
         $user->role = $request->role;
         $this->userRepo->save($user);
     }

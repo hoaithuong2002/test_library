@@ -14,7 +14,8 @@ class AuthController extends Controller
         }
         return redirect()->route('user.index');
     }
-    function login(Request $request){
+    function login(Request $request): \Illuminate\Http\RedirectResponse
+    {
         $email=$request->email;
         $password= $request->password;
         $data= [
@@ -22,7 +23,7 @@ class AuthController extends Controller
             'password'=>$password
         ];
         if (Auth::attempt($data)) {
-            return redirect()->intended('/admin/index   ');
+            return redirect()->intended('/admin/index');
         }
         return back()->withErrors([
             'login-error' => 'Tài khoản hoặc mật khẩu không đúng!',

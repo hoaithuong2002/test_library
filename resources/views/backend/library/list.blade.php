@@ -15,11 +15,9 @@
                                 <tr>
                                     <th class="serial">#</th>
                                     <th>Name</th>
-                                    <th>Phone</th>
-                                    <th>Email</th>
                                     <th>Address</th>
+                                    <th>phone</th>
                                     <th class="avatar">Avatar</th>
-                                    <th>Role</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -28,15 +26,10 @@
                                     <tr class="user-list">
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $user->name }}</td>
-                                        <td>{{ $user->phone }}</td>
-                                        <td>{{ $user->email }}</td>
                                         <td>{{ $user->address }}</td>
-{{--                                        <td><img src="{{asset('storage/' .$user->image)}}" width="200" class="avatar" alt="avatar"></td>--}}
-                                        <td>
-{{--                                            @foreach($user->roles as $role)--}}
-{{--                                                {{ $role->name. ',' }}--}}
-{{--                                            @endforeach--}}
-                                        </td>
+                                        <td>{{ $user->phone }}</td>
+                                        <td><img src="{{asset('storage/' .$user->image)}}" width="200" class="avatar"
+                                                 alt="avatar"></td>
                                         <td>
                                             <a onclick="return confirm('Are you sure delete user: {{ $user->name }}')"
                                                class="btn btn-danger" href="{{ route('user.delete', $user->id) }}">Delete</a>
@@ -46,7 +39,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-{{--                            {{ $users->links() }}--}}
+                            {{--                            {{ $users->links() }}--}}
                         </div> <!-- /.table-stats -->
                     </div>
                 </div> <!-- /.card -->
