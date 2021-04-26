@@ -5,8 +5,8 @@
             <div class="col-xl-12">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="box-title" style="text-align: center">Management User </h4>
-                        <button type="button"  class="btn btn-outline-success" ><a href="{{route('user.create')}}">Add User</a></button>
+                        <h4 class="box-title" style="text-align: center">Management library </h4>
+                        <button type="button"  class="btn btn-outline-success" ><a href="{{route('library.create')}}">Add library</a></button>
                     </div>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
@@ -22,24 +22,24 @@
                                 </thead>
                                 <tbody>
 
-                                @foreach($users as $key => $user)
-                                    <tr class="user-list">
+                                @foreach($libraries as $key => $library)
+                                    <tr class="library-list">
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $user->name }}</td>
-                                        <td>{{ $user->address }}</td>
-                                        <td>{{ $user->phone }}</td>
-                                        <td><img src="{{asset('storage/' .$user->image)}}" width="200" class="avatar"
+                                        <td>{{ $library->name }}</td>
+                                        <td>{{ $library->address }}</td>
+                                        <td>{{ $library->phone }}</td>
+                                        <td><img src="{{asset('storage/' .$library->image)}}" width="200" class="avatar"
                                                  alt="avatar"></td>
                                         <td>
-                                            <a onclick="return confirm('Are you sure delete user: {{ $user->name }}')"
-                                               class="btn btn-danger" href="{{ route('user.delete', $user->id) }}">Delete</a>
-                                            <a class="btn btn-primary" href="{{ route('user.edit', $user->id) }}">Edit</a>
+                                            <a onclick="return confirm('Are you sure delete library: {{ $library->name }}')"
+                                               class="btn btn-danger" href="{{ route('library.delete', $library->id) }}">Delete</a>
+                                            <a class="btn btn-primary" href="{{ route('library.edit', $library->id) }}">Edit</a>
                                         </td>
                                     </tr>
                                 @endforeach
                                 </tbody>
                             </table>
-                            {{--                            {{ $users->links() }}--}}
+                                                        {{ $librarys->links() }}
                         </div> <!-- /.table-stats -->
                     </div>
                 </div> <!-- /.card -->

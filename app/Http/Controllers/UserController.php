@@ -27,9 +27,16 @@ class UserController extends Controller
     {
         $user = new User();
         $user->name = $request->name;
+        $user->phone = $request->phone;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);
+        $user->address = $request->address;
+        $user->role = $request->role;
         $user->save();
+
+        $user->avatar = $user->name . '_' . $user->id . '_avt.' . ($request->avatar)->extension();
+        $user->save();
+
+        ($request->avatar)->storeAs('public/avatar', $user->avatar);
         return redirect()->route('user.index');
 
     }
@@ -37,15 +44,23 @@ class UserController extends Controller
     public function update($id)
     {
         $user= User::find($id);
-        return view('backend.users.edit',compact('user'));
+        $roles = Role::all();
+        return view('backend.users.edit',compact('user','roles'));
     }
 
     public function edit($id, Request $request): \Illuminate\Http\RedirectResponse
     {
         $user = User::find($id);
         $user->name = $request->name;
+        $user->phone = $request->phone;
         $user->email = $request->email;
+        $user->address = $request->address;
+        $user->role = $request->role;
         $user->save();
+        $user->avatar = $user->name . '_' . $user->id . '_avt.' . ($request->avatar)->extension();
+        $user->save();
+
+        ($request->avatar)->storeAs('public/avatar', $user->avatar);
         return redirect()->route('user.index');
     }
     function delete($id): \Illuminate\Http\RedirectResponse

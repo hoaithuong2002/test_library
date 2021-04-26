@@ -5,11 +5,11 @@
             Edit Library
         </div>
         <div class="card-body">
-            <form method="post" action="{{ route('user.update', $user->id) }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('library.update', $library->id) }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">
                     <label>Name</label>
-                    <input value="{{$user->name? $user->name: old('name')}}" type="text" name="name"
+                    <input value="{{$library->name? $library->name: old('name')}}" type="text" name="name"
                            class="form-control  @error('name') border-danger  @enderror">
                     @error('name')
                     <p class="text-danger">{{ $message }}</p>
@@ -17,7 +17,7 @@
                 </div>
                 <div class="form-group">
                     <label>Address</label>
-                    <input value="{{$user->address? $user->address: old('address')}}" type="text" name="address"
+                    <input value="{{$library->address? $library->address: old('address')}}" type="text" name="address"
                            class="form-control  @error('address') border-danger  @enderror">
                     @error('address')
                     <p class="text-danger">{{ $message }}</p>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-group">
                     <label>Phone</label>
-                    <input value="{{$user->phone? $user->phone: old('phone')}}" type="text" name="phone"
+                    <input value="{{$library->phone? $library->phone: old('phone')}}" type="text" name="phone"
                            class="form-control  @error('phone') border-danger  @enderror">
                     @error('phone')
                     <p class="text-danger">{{ $message }}</p>
@@ -34,7 +34,7 @@
 
                 <div class="form-group">
                     <label>Image</label>
-                    <div class="row" id="avatar-user">
+                    <div class="row" id="avatar-library">
                         <input type="file" name="image[]"
                                class="form-control col-md-6  @error('image') border-danger  @enderror">
                         <button type="button" id="add-file-avatar" onclick="addInputFile()"
@@ -51,7 +51,7 @@
 
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="text" value="{{old('email')}}" name="{{ ($user->email) ? $user->email : old('email') }}" class="form-control  @error('email') border-danger  @enderror">
+                    <input type="text" value="{{old('email')}}" name="{{ ($library->email) ? $library->email : old('email') }}" class="form-control  @error('email') border-danger  @enderror">
                     @error('email')
                     <p class="text-danger">{{ $message }}</p>
                     @enderror
