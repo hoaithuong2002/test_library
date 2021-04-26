@@ -51,7 +51,9 @@
 
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input type="text" value="{{old('email')}}" name="{{ ($library->email) ? $library->email : old('email') }}" class="form-control  @error('email') border-danger  @enderror">
+                    <input type="text" value="{{old('email')}}"
+                           name="{{ ($library->email) ? $library->email : old('email') }}"
+                           class="form-control  @error('email') border-danger  @enderror">
                     @error('email')
                     <p class="text-danger">{{ $message }}</p>
                     @enderror

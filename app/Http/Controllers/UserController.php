@@ -14,15 +14,16 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        $users = DB::table('users')->paginate(4);
-        return view('backend.users.index',compact('users'));
+        $users = DB::table('users');
+        return view('backend.users.index', compact('users'));
     }
 
     public function create()
     {
-       $roles=Role::all();
-        return view('backend.users.create',compact('roles'));
+        $roles = Role::all();
+        return view('backend.users.create', compact('roles'));
     }
+
     public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
         $user = new User();
@@ -43,9 +44,9 @@ class UserController extends Controller
 
     public function update($id)
     {
-        $user= User::find($id);
+        $user = User::find($id);
         $roles = Role::all();
-        return view('backend.users.edit',compact('user','roles'));
+        return view('backend.users.edit', compact('user', 'roles'));
     }
 
     public function edit($id, Request $request): \Illuminate\Http\RedirectResponse
@@ -63,6 +64,7 @@ class UserController extends Controller
         ($request->avatar)->storeAs('public/avatar', $user->avatar);
         return redirect()->route('user.index');
     }
+
     function delete($id): \Illuminate\Http\RedirectResponse
     {
         $user = User::find($id);
@@ -73,8 +75,8 @@ class UserController extends Controller
     public function search(Request $request)
     {
         $search = $request->keyword;
-        $users = DB::table('users')->where('name', 'LIKE', "%$search%")->paginate(4);
+        $users = DB::table('users')->where('name', 'LIKE', "%$search%");
         return view('back-end.user.index', compact('users'));
     }
-
 }
+

@@ -11,14 +11,15 @@ class LibraryController extends Controller
 {
     public function index()
     {
-        $library = Library::all();
-        $library = DB::table('libraries')->paginate(4);
-        return view('backend.library.list',compact('library'));
+        $libraries = Library::all();
+        $libraries = DB::table('libraries')->paginate(4);
+        return view('backend.library.list',compact('libraries'));
     }
 
     public function create()
     {
-        return view('backend.users.create');
+
+        return view('backend.library.create');
     }
 
     public function store(Request $request)

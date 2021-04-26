@@ -8,51 +8,76 @@
                         <img class="align-content" src="images/logo.png" alt="">
                     </a>
                 </div>
-                <div >
-                <form method="post" action="{{route('admin.register')}}" class="login-form">
-                    @csrf
-                    <div class="form-row" >
-                        <div class="form-group col-md-6">
-                            <label for="name">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Name">
+                <div>
+                    <form method="post" action="{{route('admin.register')}}" class="login-form">
+                        @csrf
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="name">Name</label>
+                                <input value="{{ old('name')}}" type="text" name="name"
+                                       class="form-control  @error('name') border-danger  @enderror" required>
+                                @error('name')
+                                <p class="text-danger">{{ $message }}</p>
+                                @enderror
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="phone">Phone</label>
+                                <input value="{{ old('phone') }}" type="number"
+                                       class="form-control @error('name') border-danger  @enderror" required>
+                                @error('phone')
+                                <p class="text-danger">{{$message}}</p>
+                                @enderror
+                            </div>
                         </div>
-                        <div class="form-group col-md-6">
-                            <label for="phone">Phone</label>
-                            <input type="number" class="form-control" id="phone" placeholder="phone">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input value="{{ old('email')}}" type="text" name="email"
+                                   class="form-control  @error('email') border-danger  @enderror" required>
+                            @error('email')
+                            <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="text" class="form-control" id="email" placeholder="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputAddress">Address </label>
-                        <input type="text" class="form-control" id="inputAddress" placeholder="address">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <label for="avatar">Avatar</label>
-                            <input type="file" class="form-control" id="avatar">
+                        <div class="form-group">
+                            <label for="inputAddress">Address </label>
+                            <input value="{{old('address')}}" type="text" name="address"
+                                   class="form-control  @error('address') border-danger  @enderror" required>
+                            @error('address')
+                            <p class="text-danger">{{ $message }}</p>
+                            @enderror
                         </div>
-                        <div class="form-group col-md-4">
-                            <label for="inputState">Role</label>
-                            <select id="inputState" class="form-control">
-                                <option value="1">admin</option>
-                                <option value="2">editor</option>
-                                <option value="3">customer</option>
-                            </select>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="avatar">Avatar</label>
+                                <div class="row" id="avatar-user">
+                                    <input type="file"
+                                           class="form-control col-md-6  @error('image') border-danger  @enderror"
+                                           required>
+                                </div>
+                                <div>
+                                    @error('image')
+                                    <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="inputState">Role</label>
+                                <select id="inputState" class="form-control">
+                                    <option value="1">admin</option>
+                                    <option value="2">editor</option>
+                                    <option value="3">customer</option>
+                                </select>
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck">
-                            <label class="form-check-label" for="gridCheck">
-                                Check me out
-                            </label>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                    Check me out
+                                </label>
+                            </div>
                         </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Sign in</button>
-                </form>
+                        <button type="submit" class="btn btn-primary">Sign in</button>
+                    </form>
                 </div>
             </div>
         </div>

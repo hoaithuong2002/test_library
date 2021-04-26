@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="box-title" style="text-align: center">Management library </h4>
-                        <button type="button"  class="btn btn-outline-success" ><a href="{{route('library.create')}}">Add library</a></button>
+                        <button type="button"  class="btn btn-outline-success" ><a href="{{route('library.store')}}">Add library</a></button>
                     </div>
                     <div class="card-body--">
                         <div class="table-stats order-table ov-h">
@@ -39,7 +39,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
-                                                        {{ $librarys->links() }}
+                                                        {{ $libraries->links() }}
                         </div> <!-- /.table-stats -->
                     </div>
                 </div> <!-- /.card -->

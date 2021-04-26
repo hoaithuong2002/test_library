@@ -36,6 +36,6 @@ Route::prefix('library')->group(function () {
     Route::post('/store', [LibraryController::class, 'store'])->name('library.store');
     Route::post('/{id}/update', [LibraryController::class, 'edit'])->name('library.update');
     Route::get('/{id}/edit', [LibraryController::class, 'update'])->name('library.edit');
-    Route::get('{id}/delete', [LibraryController::class, 'delete'])->name('library.delete');
-    Route::get('/search', [LibraryController::class, 'search'])->name('library.search');
+    Route::get('/   {id}/delete', [LibraryController::class, 'delete'])->name('library.delete');
+    Route::get('/{id}/search', [LibraryController::class, 'search'])->name('library.search');
 });

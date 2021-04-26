@@ -45,7 +45,6 @@
                     <div class="row" id="avatar-user">
                         <input type="file" name ="avatar"
                                class="form-control col-md-6  @error('image') border-danger  @enderror" required>
-                        </button>
                     </div>
                     <div id="list-input">
 
