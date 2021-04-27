@@ -25,11 +25,7 @@ class RegisterRequest extends FormRequest
     {
         return [
             'name'=> "required|unique:users,name",
-            'phone'=>"required|max:10|unique:users,phone",
             'email' => "required|email|unique:users,email",
-            'address'=>"required|unique:users,address",
-            'avatar'=>"required",
-            'role'=>"required",
             'password'=> "required|min:6",
         ];
     }
@@ -39,18 +35,18 @@ class RegisterRequest extends FormRequest
         return [
             'name.required'=>'Truong nay khong duoc de trong',
             'name.unique'=>'Ten nay da ton tai',
-            'phone.required'=>'Truong nay khong duoc de trong',
-            'phone.max'=>'Nhieu nhat 10 ki tu ',
-            'phone.unique'=>'Phone nay da ton tai',
+//            'phone.required'=>'Truong nay khong duoc de trong',
+//            'phone.max'=>'Nhieu nhat 10 ki tu ',
+//            'phone.unique'=>'Phone nay da ton tai',
             'email.required'=>'Truong nay khong duoc de trong',
             'email.unique'=>'Email nay da ton tai',
             'email.email'=>'Khong dung dinh danng',
             'password.required'=>'Truong nay khong duoc de trong',
             'password.min'=>'It nhat 6 ky tu tro len',
-            'address.required'=>'Truong nay khong duoc de trong',
-            'address.unique'=>'Ten nay da ton tai',
-            'avatar.required'=>'Truong nay khong duoc de trong',
-            'role.required'=>'Truong nay khong duoc de trong',
+//            'address.required'=>'Truong nay khong duoc de trong',
+//            'address.unique'=>'Ten nay da ton tai',
+//            'avatar.required'=>'Truong nay khong duoc de trong',
+//            'role.required'=>'Truong nay khong duoc de trong',
 
         ];
     }

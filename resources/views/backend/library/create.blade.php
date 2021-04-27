@@ -31,7 +31,7 @@
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-success"> Add Library</button>
-                            <a href="{{route('user.index')}}" class="btn btn-secondary">Cancel</a>
+                            <a href="{{route('library.index')}}" class="btn btn-secondary">Cancel</a>
                         </div>
                     </div>
                 </div>

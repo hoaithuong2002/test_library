@@ -11,7 +11,6 @@ class LibraryController extends Controller
 {
     public function index()
     {
-        $libraries = Library::all();
         $libraries = DB::table('libraries')->paginate(4);
         return view('backend.library.list',compact('libraries'));
     }
@@ -21,18 +20,18 @@ class LibraryController extends Controller
         return view('backend.library.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): \Illuminate\Http\RedirectResponse
     {
-
+//        dd($request->all());
         $library = new Library();
         $library->name = $request->name;
         $library->phone= $request->phone;
         $library->address= $request->address;
         $library->save();
+        $library->avatar = $library->name . '_' . $library->id . '_avt.' . ($request->avatar)->extension();
+        $library->save();
 
-       $path = $this->updateLoadFile($request, 'avatar', 'avatar1');
-       $library->avatar =$path;
-       $library->save();
+        ($request->avatar)->storeAs('public/library', $library->avatar);
         return redirect()->route('library.index');
     }
 
@@ -52,7 +51,7 @@ class LibraryController extends Controller
         $library->avatar = $library->name . '_' . $library->id . '_avt.' . ($request->avatar)->extension();
         $library->save();
 
-        ($request->avatar)->storeAs('public/avatar', $library->avatar);
+        ($request->avatar)->storeAs('public/library', $library->avatar);
         return redirect()->route('library.index');
     }
 

@@ -14,5 +14,6 @@ class Book extends Model
         'category_id',
         'avatar',
         'status',
+        'description',
     ];
 }

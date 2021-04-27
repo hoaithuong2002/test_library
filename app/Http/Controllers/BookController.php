@@ -10,7 +10,6 @@ class BookController extends Controller
 {
     public function index()
     {
-        $books = Book::all();
         $books = DB::table('books')->paginate(4);
         return view('backend.books.list', compact('books'));
     }
@@ -22,6 +21,7 @@ class BookController extends Controller
 
     public function store(Request $request)
     {
+        dd($request->all());
         $book = new Book();
         $book->name = $request->name;
         $book->avatar = $book->name . '_' . $book->id . '_avt.' . ($request->avatar)->extension();
@@ -29,14 +29,15 @@ class BookController extends Controller
 
         ($request->avatar)->storeAs('public/avatar', $book->avatar);
         $book->status = $request->status;
+        $book->description = $request->description;
         $book->save();
         return redirect()->route('book.index');
     }
 
     public function edit($id)
     {
-        $books = Book::find($id);
-        return view('backend.books.edit', compact('books'));
+        $book = Book::find($id);
+        return view('backend.books.edit', compact('book'));
     }
 
     public function update($id, Request $request)
@@ -48,6 +49,7 @@ class BookController extends Controller
 
         ($request->avatar)->storeAs('public/avatar', $book->avatar);
         $book->status = $request->status;
+        $book->description = $request->description;
         $book->save();
         return redirect()->route('book.index');
     }

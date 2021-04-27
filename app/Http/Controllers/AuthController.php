@@ -52,12 +52,8 @@ class AuthController extends Controller
 //        dd($request->all());
         $user = new User();
         $user->name = $request->name;
-        $user->phone = $request->phone;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
-        $user->address = $request->address;
-        $user->avatar = $request->avatar;
-        $user->role = $request->role;
         $user->save();
         return redirect()->route('admin.login');
     }

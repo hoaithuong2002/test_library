@@ -11,8 +11,7 @@
                        aria-expanded="false"> <i class="menu-icon fa fa-cogs"></i>Management User</a>
                         <ul class="sub-menu children dropdown-menu">
                             <li><i class="fa fa-puzzle-piece"></i><a href="{{route('user.index')}}">User List</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="ui-badges.html">Badges</a></li>
-                            <li><i class="fa fa-bars"></i><a href="ui-tabs.html">Tabs</a></li>
+                            <li><i class="fa fa-id-badge"></i><a href="{{route('user.create')}}">Add User</a></li>
 
 
                         </ul>
@@ -21,16 +20,16 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Management Library</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa fa-table"></i><a href="#">List Library</a></li>
-                        <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
+                        <li><i class="fa fa-table"></i><a href="{{route('library.index')}}">List Library</a></li>
+                        <li><i class="fa fa-table"></i><a href="{{route('library.create')}}">Add Library</a></li>
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
-                       aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Forms</a>
+                       aria-expanded="false"> <i class="menu-icon fa fa-th"></i>Book</a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-th"></i><a href="forms-basic.html">Basic Form</a></li>
-                        <li><i class="menu-icon fa fa-th"></i><a href="forms-advanced.html">Advanced Form</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{route('book.index')}}"> List Book</a></li>
+                        <li><i class="menu-icon fa fa-th"></i><a href="{{route('book.create')}}">Add Book</a></li>
                     </ul>
                 </li>
 

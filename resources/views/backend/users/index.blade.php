@@ -31,12 +31,13 @@
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->address }}</td>
                                         <td><img src="{{asset('storage/avatar/' .$user->avatar)}}" width="200" class="avatar" alt="avatar"></td>
-                                        <td>
+{{--                                        <td>--}}
 {{--                                            @foreach($user->roles as $role)--}}
 {{--                                                {{ $role->name. ',' }}--}}
 {{--                                            @endforeach--}}
-                                        </td>
-                                        <td>
+
+{{--                                        <td>--}}
+                                         <td>
                                             <a onclick="return confirm('Are you sure delete user: {{ $user->name }}')"
                                                class="btn btn-danger" href="{{ route('user.delete', $user->id) }}">Delete</a>
                                             <a class="btn btn-primary" href="{{ route('user.edit', $user->id) }}">Edit</a>
@@ -57,7 +58,7 @@
                                 </tfoot>
                             </table>
                         </div> <!-- /.table-stats -->
-                        {{ $users->links() }}
+{{--                        {{ $users->links() }}--}}
                     </div>
                 </div> <!-- /.card -->
             </div>  <!-- /.col-lg-8 -->
