@@ -28,8 +28,12 @@
                             <label for="address" class=" form-control-label">Address</label>
                             <input type="text" name="address" id="address" class="form-control" required>
                         </div>
-                        <div class="row form-group">
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <input type="password" name="password" class="form-control" required>
+                        </div>
 
+                        <div class="row form-group">
                             <div class="col-8">
                                 <div class="form-group">
                                     <label for="avatar" class=" form-control-label">Avatar</label>
@@ -37,6 +41,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-group row">
                             <div class="col-sm-2">Role
                                 <select name="role" id="role">Role

@@ -60,9 +60,9 @@
                                 </div>
                             </div>
                             <div class="form-group col-md-4">
-                                <label for="inputState">Role</label>
-                                <select id="inputState" class="form-control">
-                                    <option value="1">admin</option>
+                                <label for="role">Role</label>
+                                <select id="role" class="form-control">
+                                    <option value="1" id="" >admin</option>
                                     <option value="2">editor</option>
                                     <option value="3">customer</option>
                                 </select>

@@ -18,35 +18,41 @@ class LibraryController extends Controller
 
     public function create()
     {
-
         return view('backend.library.create');
     }
 
     public function store(Request $request)
     {
+
         $library = new Library();
         $library->name = $request->name;
         $library->phone= $request->phone;
         $library->address= $request->address;
-        $library->avatar = $request->avatar;
         $library->save();
+
+       $path = $this->updateLoadFile($request, 'avatar', 'avatar1');
+       $library->avatar =$path;
+       $library->save();
         return redirect()->route('library.index');
     }
 
-    public function update($id)
+    public function edit($id)
     {
         $library = Library::find($id);
         return view('backend.library.edit',compact('library'));
     }
 
-    public function edit($id ,Request $request)
+    public function update($id ,Request $request)
     {
         $library = Library::find($id);
         $library->name = $request->name;
         $library->phone= $request->phone;
         $library->address= $request->address;
-        $library->avatar = $request->avatar;
         $library->save();
+        $library->avatar = $library->name . '_' . $library->id . '_avt.' . ($request->avatar)->extension();
+        $library->save();
+
+        ($request->avatar)->storeAs('public/avatar', $library->avatar);
         return redirect()->route('library.index');
     }
 

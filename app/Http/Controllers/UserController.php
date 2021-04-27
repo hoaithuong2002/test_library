@@ -13,7 +13,6 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
         $users = DB::table('users');
         return view('backend.users.index', compact('users'));
     }
@@ -55,6 +54,7 @@ class UserController extends Controller
         $user->name = $request->name;
         $user->phone = $request->phone;
         $user->email = $request->email;
+        $user->pasword = $request->password;
         $user->address = $request->address;
         $user->role = $request->role;
         $user->save();

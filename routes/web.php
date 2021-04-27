@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\LibraryController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -34,8 +35,17 @@ Route::prefix('library')->group(function () {
     Route::get('/index', [LibraryController::class, 'index'])->name('library.index');
     Route::get('/create', [LibraryController::class, 'create'])->name('library.create');
     Route::post('/store', [LibraryController::class, 'store'])->name('library.store');
-    Route::post('/{id}/update', [LibraryController::class, 'edit'])->name('library.update');
-    Route::get('/{id}/edit', [LibraryController::class, 'update'])->name('library.edit');
-    Route::get('/   {id}/delete', [LibraryController::class, 'delete'])->name('library.delete');
-    Route::get('/{id}/search', [LibraryController::class, 'search'])->name('library.search');
+    Route::get('/{id}/edit', [LibraryController::class, 'edit'])->name('library.edit');
+    Route::post('/{id}/update', [LibraryController::class, 'update'])->name('library.update');
+    Route::get('/{id}/delete', [LibraryController::class, 'delete'])->name('library.delete');
+    Route::get('/search', [LibraryController::class, 'search'])->name('library.search');
+});
+Route::prefix('book')->group(function () {
+    Route::get('/index', [BookController::class, 'index'])->name('book.index');
+    Route::get('/create', [BookController::class, 'create'])->name('book.create');
+    Route::post('/store', [BookController::class, 'store'])->name('book.store');
+    Route::get('/{id}/edit', [BookController::class, 'edit'])->name('book.edit');
+    Route::post('/{id}/update', [BookController::class, 'update'])->name('book.update');
+    Route::get('/{id}/delete', [BookController::class, 'delete'])->name('book.delete');
+    Route::get('/search', [BookController::class, 'search'])->name('book.search');
 });

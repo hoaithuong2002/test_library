@@ -23,9 +23,8 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
                                 @foreach($users as $key => $user)
-                                    <tr class="user-list">
+                                     <tr class="user-list">
                                         <td>{{ $key + 1 }}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->phone }}</td>
@@ -45,8 +44,18 @@
                                     </tr>
                                 @endforeach
                                 </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th class="serial">#</th>
+                                    <th>Name</th>
+                                    <th>Phone</th>
+                                    <th>Email</th>
+                                    <th>Address</th>
+                                    <th class="avatar">Avatar</th>
+                                    <th>Role</th>
+                                </tr>
+                                </tfoot>
                             </table>
-{{--                            {{ $users->links() }}--}}
                         </div> <!-- /.table-stats -->
                         {{ $users->links() }}
                     </div>

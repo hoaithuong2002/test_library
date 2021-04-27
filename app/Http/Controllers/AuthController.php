@@ -57,7 +57,7 @@ class AuthController extends Controller
         $user->password = Hash::make($request->password);
         $user->address = $request->address;
         $user->avatar = $request->avatar;
-//        $user->role = $request->role;
+        $user->role = $request->role;
         $user->save();
         return redirect()->route('admin.login');
     }
